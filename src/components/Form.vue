@@ -6,13 +6,15 @@
         </md-field>
 
         <md-field>
-            <label for="path">Path</label>
+            <label for="path">Folder name</label>
             <md-input type=text id="path" v-model="object.path" :disabled="sending || data" required/>
+            <span class="md-helper-text">Name of object folder in OMSI 2, eg : "Verkehrszeichen_MC"</span>
         </md-field>
 
         <md-field>
             <label for="link">Link</label>
             <md-input type=url id="link" v-model="object.link" :disabled="sending" required/>
+            <span class="md-helper-text">Must be a valid https link</span>
         </md-field>
 
         <md-switch v-if="object.id" v-model="object.unavailable">Link broken ?</md-switch>
