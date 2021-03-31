@@ -3,7 +3,7 @@ import App from './App.vue'
 
 import VueMaterial from 'vue-material'
 import 'vue-material/dist/vue-material.min.css'
-import 'vue-material/dist/theme/default.css'
+import './scss/vue-material.scss'
 Vue.use(VueMaterial)
 
 import Router from 'vue-router'
@@ -13,7 +13,7 @@ const router = new Router({
     base: process.env.BASE_URL,
     routes: [
         {
-            path: '/',
+            path: '/:string?',
             name: 'Landing Page',
             component: () => import('@/components/List')
         }

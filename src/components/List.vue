@@ -1,10 +1,15 @@
 <template>
     <div class="list">
         <md-progress-bar md-mode="indeterminate" v-if="loading"></md-progress-bar>
-        <md-autocomplete v-model="search" :md-options="autocomplete">
-            <label>Search</label>
+        
+        <md-autocomplete 
+            v-model="search" :md-options="autocomplete" md-layout="box" md-dense
+            @md-changed="syncRoute" style="position:sticky;top:72px">
+            <label>Search for "{{ autocomplete[Math.floor(Math.random() * autocomplete.length)] }}" in {{ objects.length }} objects</label>
+            <template slot="md-autocomplete-empty" slot-scope="{ term }">
+                No object matching "{{ term }}" were found. <a @click="add()">Create a new</a> one
+            </template>
         </md-autocomplete>
-        <p>{{ objects.length }} Objects indexed</p>
 
         <md-list v-if="objects" :md-expand-single="true">
             <div v-for="(item, index) in objects" v-bind:key="index">
@@ -40,13 +45,14 @@
                                 <edit-form :data="item" ref="edit"></edit-form>
                             </md-dialog-content>
                             <md-dialog-actions>
-                                <md-button class="md-primary" @click="currentEdit = ''">Close</md-button>
+                                <md-button class="md-primary" @click="currentEdit = ''">cancel</md-button>
                             </md-dialog-actions>
                         </md-dialog>
                     </md-list>
                 </md-list-item>
             </div>
         </md-list>
+
     </div>
 </template>
 
@@ -64,7 +70,9 @@ export default {
             autocomplete: [],
             loading: false,
             currentEdit: '',
-            search: ''
+            hasItems: 0,
+            search: '',
+            mode: 'search'
         }
     },
     created() {
@@ -83,6 +91,17 @@ export default {
             this.loading = false
             alert(err)
         })
+        if(this.$route.params.string) {
+            this.search = this.$route.params.string
+        }
+    },
+    methods: {
+        syncRoute() {
+            this.$router.push('/' + this.search)
+        },
+        add() {
+
+        }
     }
 }
 </script>
