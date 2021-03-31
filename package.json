@@ -6,7 +6,7 @@
   "scripts": {
     "serve": "vue-cli-service serve --port 2001",
     "build": "vue-cli-service build",
-    "deploy": "npm run serve && firebase deploy"
+    "deploy": "npm run build && firebase deploy"
   },
   "repository": {
     "type": "git",
