@@ -21,6 +21,10 @@
             {{ object.id ? 'Save' : 'Submit' }}
             <md-progress-spinner v-if="sending" :md-diameter="16" :md-stroke="3" md-mode="indeterminate"></md-progress-spinner>
         </md-button>
+
+        <md-snackbar md-position="center" :md-duration="3000" :md-active.sync="sended" md-persistent>
+            <span>{{ object.id ? 'Data successfully saved !' : 'Object added !' }}</span>
+        </md-snackbar>
     </form>
 </template>
 
@@ -35,7 +39,8 @@ export default {
     data() {
         return {
             object: {},
-            sending: false
+            sending: false,
+            sended: false,
         }
     },
     methods: {
@@ -50,9 +55,9 @@ export default {
             collection.doc(this.object.id).set(this.object)
             .then(() => {
                 this.sending = false
+                this.sended = true
                 if(!this.object.id) {
                     this.object = {}
-                    alert('Object added')
                 }
             })
             .catch(err => {
