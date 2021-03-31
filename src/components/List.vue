@@ -4,7 +4,7 @@
         
         <md-autocomplete 
             v-model="search" :md-options="autocomplete" md-layout="box" md-dense
-            @md-changed="syncRoute" style="position:sticky;top:72px">
+            @md-changed="syncRoute" style="position:sticky;top:72px;z-index:3">
             <label>Search for "{{ autocomplete[Math.floor(Math.random() * autocomplete.length)] }}" in {{ objects.length }} objects</label>
             <template slot="md-autocomplete-empty" slot-scope="{ term }">
                 No object matching "{{ term }}" were found. <a @click="add()">Create a new</a> one
