@@ -1,3 +1,9 @@
+h3 {
+    font-size: 36px;
+    line-height: 44px;
+    font-weight: 400;
+}
+
 .os-align {
     &--right {
         justify-content: flex-end;
@@ -5,6 +11,10 @@
 }
 
 .os-button {
+    border: none;
+    font-family: 'Roboto', 'Noto Sans', Arial, Helvetica, sans-serif;
+    cursor: pointer;
+
     &[disabled] {
         background: var(--surface-variant);
         color: var(--on-surface-variant);
@@ -16,9 +26,22 @@
         border: 1px solid var(--outline);
         color: var(--primary);
     }
+
+    &--default {
+        background: transparent;
+        border-radius: 21px;
+        color: var(--primary);
+
+        &:hover, &:focus, &:active {
+            box-shadow: none;
+            background: var(--primary-container);
+            color: var(--on-primary-container);
+        }
+    }
 }
 
 .os-textbox {
+    margin-top: 12px;
     padding: 24px;
     background: var(--surface-variant);
     border: none;
@@ -116,7 +139,7 @@
         align-items: center;
         gap: 0 16px;
         background: var(--background);
-        border-radius: 8px;
+        border-radius: 12px;
         transition: border-radius 0.2s ease-in-out;
 
         &:hover, &:focus, &:active {
