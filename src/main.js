@@ -1,27 +1,18 @@
-import Vue from 'vue'
-import App from './App.vue'
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-app.js";
+import { getFirestore, collection, query } from 'https://www.gstatic.com/firebasejs/9.2.0/firebase-firestore.js'
 
-import VueMaterial from 'vue-material'
-import 'vue-material/dist/vue-material.min.css'
-import './scss/vue-material.scss'
-Vue.use(VueMaterial)
+// Your web app's Firebase configuration
+const firebaseConfig = {
+    apiKey: "AIzaSyC1RwlkVE5Fk1IzuENTK2lk2MXaumBRZmc",
+    authDomain: "objects-omsistuff.firebaseapp.com",
+    databaseURL: "https://objects-omsistuff.firebaseio.com",
+    projectId: "objects-omsistuff",
+    storageBucket: "objects-omsistuff.appspot.com",
+    messagingSenderId: "798024256030",
+    appId: "1:798024256030:web:1be5e23fc368de067b3c0f"
+};
 
-import Router from 'vue-router'
-Vue.use(Router)
-
-const router = new Router({
-    base: process.env.BASE_URL,
-    routes: [
-        {
-            path: '/:string?',
-            name: 'Landing Page',
-            component: () => import('@/components/List')
-        }
-    ]
-})
-
-const app = new Vue({
-    el: '#app',
-    router,
-    render: h => h(App)
-})
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);

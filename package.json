@@ -4,31 +4,34 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "serve": "vue-cli-service serve --port 2001",
-    "build": "vue-cli-service build",
+    "build": "gulp build",
+    "dev": "gulp watch",
     "deploy": "npm run build && firebase deploy"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Aryqs-Ipsum/objects-omsistuff.git"
+    "url": "git+https://github.com/arnoclr/objects-omsistuff.git"
   },
   "author": "Arno Cellarier",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Aryqs-Ipsum/objects-omsistuff/issues"
+    "url": "https://github.com/arnoclr/objects-omsistuff/issues"
   },
-  "homepage": "https://github.com/Aryqs-Ipsum/objects-omsistuff#readme",
-  "dependencies": {
-    "firebase": "^8.3.1",
-    "vue": "^2.6.10",
-    "vue-material": "^1.0.0-beta-15",
-    "vue-router": "^3.5.1"
-  },
+  "homepage": "https://github.com/arnoclr/objects-omsistuff#readme",
   "devDependencies": {
-    "@vue/cli-service": "^4.5.12",
-    "add": "^2.0.6",
-    "node-sass": "^5.0.0",
-    "sass-loader": "^10.1.1",
-    "vue-template-compiler": "^2.6.10"
+    "del": "^6.0.0",
+    "gulp": "^4.0.2",
+    "gulp-clean": "^0.4.0",
+    "gulp-copy": "^4.0.1",
+    "gulp-html-tag-include": "^1.0.1",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-inline-source-html": "^1.0.3",
+    "gulp-minify-inline": "^1.1.0",
+    "gulp-sass": "^5.0.0",
+    "gulp-svelte": "^0.8.0",
+    "sass": "^1.43.4"
+  },
+  "dependencies": {
+    "firebase": "^9.2.0"
   }
 }
