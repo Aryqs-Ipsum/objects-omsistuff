@@ -1,4 +1,4 @@
-const {src, dest, series, parallel} = require('gulp')
+const {src, dest, watch, series, parallel} = require('gulp')
 const sass = require('gulp-sass')(require('sass'))
 const htmlmin = require('gulp-htmlmin');
 const inlinesource = require('gulp-inline-source-html');
@@ -49,6 +49,13 @@ function addHashFileName() {
         .pipe(dest('dist'));
 }
 
+function watcher() {
+    watch('src/**/*', build);
+}
+
+const build = series(clearDist, parallel(convertSass, minifyMjs), minifyHTML, minifyClassNames, addHashFileName);
+
 module.exports = {
-    build: series(clearDist, parallel(convertSass, minifyMjs), minifyHTML, addHashFileName, minifyClassNames)
+    build: build,
+    watch: watcher
 }
