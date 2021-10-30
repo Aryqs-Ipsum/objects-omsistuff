@@ -1,14 +1,20 @@
-<div class="os-pages__panel">
+<div class="os-pages__panel os-pages__panel--colored">
 
     <div class="os-box">
-        <div class="os-box__contained">
-            <h1 id="step-3">Available objects</h1>
-
+        <div class="os-box__contained" id="step-3">
             <template x-if="objects.length > 0">
-                <ul>
-                    <li x-for="object in objects" :key="object.id">
-                        <p x-text="object.path"></p>
-                    </li>
+                <ul class="os-list">
+                    <template x-for="object in objects" :key="object.id">
+                        <li class="os-list__pane">
+                            <span class="os-avatar" :class="'os-avatar' + getColorFromName(object.path)">
+                                <span class="os-avatar__letter" x-text="object.name.charAt(0)"></span>
+                            </span>
+                            <div class="os-list__pane-text">
+                                <a target="_blank" :href="object.link" class="os-list__pane-text-header" x-text="object.name"></a>
+                                <span class="os-list__pane-text-subheader" x-text="object.path"></span>
+                            </div>
+                        </li>
+                    </template>
                 </ul>
             </template>
         </div>

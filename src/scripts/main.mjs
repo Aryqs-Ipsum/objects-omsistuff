@@ -26,6 +26,19 @@ document.addEventListener('alpine:init', () => {
             return this.report.length > 0 && this.report.match(/Sceneryobjects\\.+\\.+\.sco/g)
         },
 
+        getColorFromName(name) {
+            const nbColors = 3;
+            const base = '--color-';
+
+            // recover number between 1 and nbColors
+            let colorNumber = name.length
+            while (colorNumber > nbColors) {
+                colorNumber = colorNumber - nbColors;
+            }
+
+            return `${base}${colorNumber}`;
+        },
+
         paths() {
             let buffer = [];
             this.report.split('\n').forEach(line => {
@@ -38,19 +51,37 @@ document.addEventListener('alpine:init', () => {
             return buffer;
         },
 
+        pasted() {
+            setTimeout(() => { 
+                if(this.isValidReport()) {
+                    this.fetchDb();
+                    document.querySelector('#step-3').scrollIntoView();
+                }
+            }, 250);
+        },
+
         async fetchDb() {
-            let buffer = [];
-            const q = query(collection(db, "objects"), where('path', 'in', this.paths()));
+            this.objects = [];
 
-            const querySnapshot = await getDocs(q);
-            querySnapshot.forEach((doc) => {
-                // doc.data() is never undefined for query doc snapshots
-                buffer.push({id: doc.id, ...doc.data()});
+            // check if query has less than 10 paths
+            const paths = this.paths();
+
+            // split paths in chunks of 10
+            const chunks = [];
+            for (let i = 0; i < paths.length; i += 10) {
+                chunks.push(paths.slice(i, i + 10));
+            }
+
+            // fetch all chunks
+            chunks.forEach(async chunk => {
+                const q = query(collection(db, "objects"), where('path', 'in', chunk));
+
+                const querySnapshot = await getDocs(q);
+                querySnapshot.forEach((doc) => {
+                    // doc.data() is never undefined for query doc snapshots
+                    this.objects.push({id: doc.id, ...doc.data()});
+                });
             });
-
-            this.objects = buffer;
-
-            console.log(this.objects, buffer);
         }
     }));
 });

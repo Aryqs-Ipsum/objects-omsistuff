@@ -63,11 +63,14 @@ p {
         display: inline-block;
         width: 100vw;
         height: 100vh;
-        border: 2px dotted black;
         white-space: initial;
         scroll-snap-align: start;
         scroll-snap-stop: always;
         vertical-align: top;
+
+        &--colored {
+            background: var(--primary-container)
+        }
     }
 
     &::-webkit-scrollbar {
