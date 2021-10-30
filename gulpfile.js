@@ -50,7 +50,7 @@ function addHashFileName() {
 }
 
 function watcher() {
-    watch('src/**/*', build);
+    watch('src/**/*', series(parallel(convertSass, minifyMjs), minifyHTML));
 }
 
 const build = series(clearDist, parallel(convertSass, minifyMjs), minifyHTML, minifyClassNames, addHashFileName);

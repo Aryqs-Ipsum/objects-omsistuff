@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build": "gulp build",
-    "dev": "gulp watch",
+    "watch": "gulp watch",
+    "serve": "cd dist && php -S localhost:5500",
+    "dev": "start npm run watch && start npm run serve",
     "deploy": "npm run build && firebase deploy"
   },
   "repository": {

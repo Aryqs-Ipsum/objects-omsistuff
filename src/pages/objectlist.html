@@ -1,0 +1,17 @@
+<div class="os-pages__panel">
+
+    <div class="os-box">
+        <div class="os-box__contained">
+            <h1 id="step-3">Available objects</h1>
+
+            <template x-if="objects.length > 0">
+                <ul>
+                    <li x-for="object in objects" :key="object.id">
+                        <p x-text="object.path"></p>
+                    </li>
+                </ul>
+            </template>
+        </div>
+    </div>
+
+</div>

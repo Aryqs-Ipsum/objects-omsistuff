@@ -8,14 +8,14 @@
     <title>Objects Finder OMSI2</title>
     <meta name="description" content="Easily find OMSI 2 objects for fresh installed maps from a maptools report. Also comes with a search system.">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Icons&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="../dist/critical.css" inline>
 </head>
 
 <body>
 
-    <main class="os-main">
+    <main class="os-main" x-data="app">
         <div class="os-pages">
             <include src="pages/landing.html"></include>
             <include src="pages/textbox.html"></include>
@@ -25,6 +25,7 @@
 
     <script type="module" src="main.mjs"></script>
     <link rel="stylesheet" href="main.css">
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     
 </body>
 

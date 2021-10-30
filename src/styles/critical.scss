@@ -1,5 +1,139 @@
+:root {
+    --primary: #386A20;
+    --on-primary: #fff;
+    --primary-container: #D9E7CB;
+    --on-primary-container: #131F0D;
+    --secondary: #914C00;
+    --on-secondary: #fff;
+    --secondary-container: #FFDCC1;
+    --on-secondary-container: #2F1500;
+    --tertiary: #765B00;
+    --on-tertiary: #fff;
+    --tertiary-container: #FFE088;
+    --on-tertiary-container: #241A00;
+    --error: #B3261E;
+    --on-error: #fff;
+    --error-container: #F9DEDC;
+    --on-error-container: #410E0B;
+    --background: #fff;
+    --on-background: #1C1B1F;
+    --surface: #fff;
+    --on-surface: #1C1B1F;
+    --surface-variant: #E7E0EC;
+    --on-surface-variant: #49454F;
+    --outline: #79747E;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--background);
+    font-family: 'Roboto', 'Noto Sans', Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    font-size: 57px;
+    line-height: 64px;
+    font-weight: 500;
+    color: var(--on-background);
+}
+
+p {
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.15px;
+    font-weight: 400;
+    color: var(--on-background);
+}
+
 .os-pages {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow-x: scroll;
+	overflow-y: hidden;
+  	white-space:nowrap;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+
     &__panel {
-        background-color: red;
+        display: inline-block;
+        width: 100vw;
+        height: 100vh;
+        border: 2px dotted black;
+        white-space: initial;
+        scroll-snap-align: start;
+        scroll-snap-stop: always;
+        vertical-align: top;
+    }
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.os-box {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+
+    &__contained {
+        width: 100%;
+        max-width: 650px;
+        padding: 0 16px;
+    }
+}
+
+.os-align {
+    display: flex;
+    align-items: center;
+    gap: 0 8px;
+
+    &--padding {
+        padding: 1rem 0;
+    }
+}
+
+.os-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1.5rem;
+    height: 42px;
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.1px;
+    font-weight: 500;
+
+    i.material-icons {
+        margin-right: 0.5rem;
+    }
+
+    &--rounded {
+        border-radius: 21px;
+    }
+
+    &--filled {
+        background: var(--primary);
+        color: var(--on-primary);
+    }
+
+    &--tonal {
+        background: var(--primary-container);
+        color: var(--on-primary-container);
+    }
+
+    &:hover, &:focus {
+        box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.20);
+    }
+
+    &:active {
+        box-shadow: 0 1px 1px 0 rgba(0,0,0,0.14), 0 2px 1px -1px rgba(0,0,0,0.12), 0 1px 3px 0 rgba(0,0,0,0.20);
     }
 }
