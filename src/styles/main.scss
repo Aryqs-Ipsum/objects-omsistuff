@@ -4,6 +4,62 @@ h3 {
     font-weight: 400;
 }
 
+.os-drawer {
+    position: fixed;
+    top: 86px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--shadow);
+    z-index: 2;
+
+    &__rack {
+        position: fixed;
+        padding: 8px;
+        padding-bottom: 12px;
+        top: 116px;
+        left: 16px;
+        width: 280px;
+        max-height: 90vh;
+        border-radius: 24px;
+        background: var(--surface);
+    }
+
+    &__label {
+        display: block;
+        padding: 8px 16px;
+        margin-top: 8px;
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: 0.1px;
+        font-weight: 500;
+        color: var(--on-surface);
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+        padding: 16px;
+        height: 48px;
+        border-radius: 16px;
+        text-decoration: none;
+        font-size: 16px;
+        line-height: 24px;
+        font-weight: 500;
+        letter-spacing: 0.15px;
+        color: var(--on-surface);
+
+        &:hover {
+            background: var(--surface-variant);
+        }
+
+        &:active {
+            background: var(--primary-container);
+            color: var(--on-primary-container);
+        }
+    }
+}
+
 .os-align {
     &--right {
         justify-content: flex-end;
@@ -92,7 +148,7 @@ h3 {
     bottom: 0;
     left: 0;
     right: 0;
-    background: #00000030;
+    background: var(--shadow);
 
     &__container {
         padding: 12px;

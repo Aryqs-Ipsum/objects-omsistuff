@@ -22,6 +22,7 @@
     --surface-variant: #E7E0EC;
     --on-surface-variant: #49454F;
     --outline: #79747E;
+    --shadow: #131F0D35;
 }
 
 * {
@@ -138,5 +139,37 @@ p {
 
     &:active {
         box-shadow: 0 1px 1px 0 rgba(0,0,0,0.14), 0 2px 1px -1px rgba(0,0,0,0.12), 0 1px 3px 0 rgba(0,0,0,0.20);
+    }
+}
+
+.os-fab {
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    background: transparent;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+
+    &:hover, &:active {
+        background: var(--shadow);
+    }
+
+    &:focus {
+        outline: 2px solid black;
+    }
+
+    &--over-backdrop {
+        z-index: 5;
+    }
+
+    &__icon {
+        color: var(--on-background);
     }
 }

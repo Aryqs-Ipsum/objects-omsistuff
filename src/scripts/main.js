@@ -21,6 +21,7 @@ const db = getFirestore(app);
 Alpine.data('app', () => ({
     report: '',
     objects: [],
+    menuOpen: false,
     helpDialogOpen: false,
 
     isValidReport() {

@@ -16,6 +16,19 @@
 <body>
 
     <main class="os-main" x-data="app">
+        <button class="os-fab os-fab--over-backdrop" @click="menuOpen=!menuOpen">
+            <i class="os-fab__icon material-icons" x-text="menuOpen ? 'menu_open' : 'menu'"></i>
+        </button>
+
+        <div class="os-drawer" x-show="menuOpen">
+            <div class="os-drawer__rack" @click.outside="menuOpen=0">
+                <span class="os-drawer__label">Links</span>
+                <a target="_blank" href="https://github.com/arnoclr/objects-omsistuff/" class="os-drawer__item">Source code</a>
+                <a target="_blank" href="https://github.com/arnoclr/objects-omsistuff/issues/new" class="os-drawer__item">Report a bug</a>
+                <a target="_blank" href="https://omsistuff.ga/assets/terms?utm_source=objects" class="os-drawer__item">Terms & Privacy</a>
+            </div>
+        </div>
+
         <div class="os-pages">
             <include src="src/partials/landing.html"></include>
             <include src="src/partials/textbox.html"></include>
