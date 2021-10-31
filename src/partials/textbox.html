@@ -14,12 +14,21 @@
                 x-model="report" @paste="pasted"></textarea>
 
             <p class="os-align os-align--right os-align--padding">
-                <button class="os-button os-button--default">Need help ?</button>
+                <button class="os-button os-button--default" @click="helpDialogOpen=1">Need help ?</button>
                 <a href="#step-3" class="os-button os-button--filled os-button--rounded"
                 :disabled="!isValidReport()" @click="fetchDb()">
                     <i class="material-icons">arrow_forward</i> Next</a>
 
             </p>
+        </div>
+    </div>
+
+    <div class="os-dialog" x-show="helpDialogOpen">
+        <div class="os-dialog__container" @click.outside="helpDialogOpen=0">
+            <i class="material-icons">help_outline</i>
+            <h3>Use maptools</h3>
+            <p>Open maptools, select the folder of your maps (located in OMSI folder).</p>
+            <img src="assets/maptools.png" alt="Screenshot of maptools program">
         </div>
     </div>
 </div>

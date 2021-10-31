@@ -21,6 +21,7 @@ const db = getFirestore(app);
 Alpine.data('app', () => ({
     report: '',
     objects: [],
+    helpDialogOpen: false,
 
     isValidReport() {
         return this.report.length > 0 && this.report.match(/Sceneryobjects\\.+\\.+\.sco/g)
