@@ -149,6 +149,7 @@ h3 {
     left: 0;
     right: 0;
     background: var(--shadow);
+    z-index: 10;
 
     &__container {
         padding: 12px;
@@ -157,11 +158,22 @@ h3 {
         background-color: var(--surface);
         border-radius: 28px;
         text-align: center;
+        
+        &-close-btn {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            display: none;
+        }
 
         @media screen and (max-width: 520px) {
             width: 100%;
             height: 100%;
             border-radius: 0;
+            
+            &-close-btn {
+                display: block;
+            }
         }
 
         i {
@@ -243,6 +255,15 @@ h3 {
         background: var(--background);
         border-radius: 12px;
         transition: border-radius 0.2s ease-in-out;
+
+        &--colored {
+            background: var(--primary-container);
+            color: var(--on-primary-container);
+
+            .os-list__pane-text-subheader {
+                color: var(--primary);
+            }
+        }
 
         &:hover, &:focus, &:active {
             border-radius: 36px;

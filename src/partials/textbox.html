@@ -25,6 +25,7 @@
 
     <div class="os-dialog" x-show="helpDialogOpen">
         <div class="os-dialog__container" @click.outside="helpDialogOpen=0">
+            <button @click="helpDialogOpen=0" class="os-dialog__container-close-btn os-fab material-icons">close</button>
             <i class="material-icons">help_outline</i>
             <h3>Use maptools</h3>
             <p>Open maptools, select the folder of your maps (located in OMSI folder).</p>

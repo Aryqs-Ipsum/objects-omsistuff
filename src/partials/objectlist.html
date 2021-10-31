@@ -1,11 +1,11 @@
-<div class="os-pages__panel os-pages__panel--colored">
+<div class="os-pages__panel">
 
     <div class="os-box">
         <div class="os-box__contained" id="step-3">
             <template x-if="objects.length > 0">
                 <ul class="os-list">
                     <template x-for="object in objects" :key="object.id">
-                        <li class="os-list__pane">
+                        <li class="os-list__pane os-list__pane--colored">
                             <span class="os-avatar" :class="'os-avatar' + getColorFromName(object.path)">
                                 <span class="os-avatar__letter" x-text="object.name.charAt(0)"></span>
                             </span>
