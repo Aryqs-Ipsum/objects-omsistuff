@@ -4,28 +4,28 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href="./assets/favicon.png" />
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
     <title>Objects Finder OMSI2</title>
     <meta name="description" content="Easily find OMSI 2 objects for fresh installed maps from a maptools report. Also comes with a search system.">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Material+Icons&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="../dist/critical.css" inline>
+    <link rel="stylesheet" href="styles/critical.scss">
 </head>
 
 <body>
 
     <main class="os-main" x-data="app">
         <div class="os-pages">
-            <include src="pages/landing.html"></include>
-            <include src="pages/textbox.html"></include>
-            <include src="pages/objectlist.html"></include>
+            <include src="src/partials/landing.html"></include>
+            <include src="src/partials/textbox.html"></include>
+            <include src="src/partials/objectlist.html"></include>
         </div>
     </main>
 
-    <script type="module" src="main.mjs"></script>
-    <link rel="stylesheet" href="main.css">
-    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script type="module" src="scripts/main.js"></script>
+    <link rel="preload" href="styles/main.scss" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="styles/main.scss"></noscript>
     
 </body>
 
