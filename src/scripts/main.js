@@ -30,7 +30,7 @@ Alpine.data('app', () => ({
 
     getColorFromName(name) {
         const nbColors = 3;
-        const base = '--color-';
+        const base = 'av_cl_';
 
         // recover number between 1 and nbColors
         let colorNumber = name.length

@@ -138,6 +138,10 @@ h3 {
     &:hover, &:focus, &:active {
         border-radius: 24px;
     }
+
+    &:focus {
+        outline: 2px solid black;
+    }
 }
 
 .os-dialog {
@@ -206,15 +210,15 @@ h3 {
     place-items: center;
     border-radius: 50%;
 
-    &--color-1 {
+    &.av_cl_1 {
         background: var(--primary);
     }
 
-    &--color-2 {
+    &.av_cl_2 {
         background: var(--secondary);
     }
 
-    &--color-3 {
+    &.av_cl_3 {
         background: var(--tertiary);
     }
 
@@ -262,6 +266,15 @@ h3 {
 
             .os-list__pane-text-subheader {
                 color: var(--primary);
+            }
+        }
+
+        &--error {
+            background: var(--error);
+            color: var(--on-error);
+
+            .os-list__pane-text-subheader {
+                color: var(--on-error);
             }
         }
 

@@ -5,8 +5,8 @@
             <template x-if="objects.length > 0">
                 <ul class="os-list">
                     <template x-for="object in objects" :key="object.id">
-                        <li class="os-list__pane os-list__pane--colored">
-                            <span class="os-avatar" :class="'os-avatar' + getColorFromName(object.path)">
+                        <li class="os-list__pane" :class="object.unavailable ? 'os-list__pane--error' : 'os-list__pane--colored'">
+                            <span class="os-avatar" :class="getColorFromName(object.path)">
                                 <span class="os-avatar__letter" x-text="object.name.charAt(0)"></span>
                             </span>
                             <div class="os-list__pane-text">
